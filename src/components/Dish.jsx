@@ -5,7 +5,7 @@ import "../assets/styles/dish.scss";
 export default function Dish({ name, image, price }) {
   return (
     <Card>
-      <Card.Img variant="top" src={image} className="ImageCard" fluid />
+      <Card.Img variant="top" src={image} fluid />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
