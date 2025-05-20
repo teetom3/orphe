@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../assets/styles/header.scss";
+import Logo from "../assets/images/logo.webp";
 
 export default function Header() {
   return (
@@ -13,7 +14,7 @@ export default function Header() {
           <NavbarBrand>
             <img
               className="NavBrand"
-              src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png"
+              src={Logo}
               alt="mexicain qui joue de la guitare"
             />
           </NavbarBrand>
