@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import "../assets/styles/dish.scss";
 import Badge from "react-bootstrap/Badge";
 
-export default function Dish({ name, image, price, isNew }) {
+export default function Dish({ name, image, price, isNew, stock }) {
   return (
     <Card>
       <Card.Img variant="top" src={image} fluid />
