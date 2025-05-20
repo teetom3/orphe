@@ -40,7 +40,7 @@ function App() {
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
-    setShowNewOnly(!showNewOnly);
+    setShowNewOnly((prevShowNewOnly) => !prevShowNewOnly);
   };
 
   const filteredDishes = dishes.filter(
