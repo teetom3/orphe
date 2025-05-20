@@ -12,11 +12,7 @@ export default function Header() {
       <Navbar>
         <Container>
           <NavbarBrand>
-            <img
-              className="NavBrand"
-              src={Logo}
-              alt="mexicain qui joue de la guitare"
-            />
+            <img src={Logo} alt="mexicain qui joue de la guitare" />
           </NavbarBrand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
