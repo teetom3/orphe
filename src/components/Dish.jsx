@@ -8,11 +8,7 @@ export default function Dish({ name, image, price, isNew }) {
     <Card>
       <Card.Img variant="top" src={image} fluid />
       <Card.Body>
-        {isNew && (
-          <h4>
-            <Badge bg="primary">Nouveau</Badge>
-          </h4>
-        )}
+        {isNew && <Badge bg="primary">Nouveau</Badge>}
 
         <Card.Title>{name}</Card.Title>
         <Card.Text>
