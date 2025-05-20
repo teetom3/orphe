@@ -37,6 +37,12 @@ function App() {
     },
   ];
 
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount((prevCartCount) => prevCartCount + 1);
+  };
+
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
@@ -49,7 +55,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cartCount={cartCount} />
       <main>
         <Button variant="primary" onClick={handleShowNewOnly}>
           {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
@@ -63,6 +69,7 @@ function App() {
                   image={dishe.image}
                   price={dishe.price}
                   isNew={dishe.isNew}
+                  addToCart={addToCart}
                 />
               </Col>
             ))}
