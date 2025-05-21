@@ -21,7 +21,7 @@ export default function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link href="/">Accueil</Nav.Link>
-              <Nav.Link>Panier {cartCount}</Nav.Link>
+              <Nav.Link href="#">Panier {cartCount}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

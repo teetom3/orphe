@@ -7,7 +7,7 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
 export default function Dish({ name, image, price, isNew, stock }) {
-  const { addToCart } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
   return (
     <Card>
       <Card.Img variant="top" src={image} fluid />
@@ -19,8 +19,11 @@ export default function Dish({ name, image, price, isNew, stock }) {
           <p>{price}€</p>
         </Card.Text>
       </Card.Body>
-      <Button variant="primary" onClick={addToCart}>
+      <Button variant="primary" onClick={() => dispatch({ type: "increment" })}>
         Ajouter au panier
+      </Button>
+      <Button variant="danger" onClick={() => dispatch({ type: "decrement" })}>
+        Retirer du Panier
       </Button>
     </Card>
   );
