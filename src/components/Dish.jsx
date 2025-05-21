@@ -3,8 +3,11 @@ import Image from "react-bootstrap/Image";
 import "../assets/styles/dish.scss";
 import Badge from "react-bootstrap/Badge";
 import { Button } from "react-bootstrap";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
-export default function Dish({ name, image, price, isNew, stock, addToCart }) {
+export default function Dish({ name, image, price, isNew, stock }) {
+  const { addToCart } = useContext(CartContext);
   return (
     <Card>
       <Card.Img variant="top" src={image} fluid />
