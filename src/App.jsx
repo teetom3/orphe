@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
@@ -6,7 +6,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { CartContext } from "./context/CartContext";
+
+import { useCart } from "./hook/useCart";
 import "./App.css";
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
       stock: 5,
     },
   ];
-
+  const { cartCount } = useCart();
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
@@ -46,7 +47,6 @@ function App() {
   const filteredDishes = dishes.filter(
     (dishe) => dishe.stock > 0 && (!showNewOnly || dishe.isNew)
   );
-  const { cartCount } = useContext(CartContext);
 
   const prevCartCountRef = useRef(cartCount);
 

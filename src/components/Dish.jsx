@@ -5,9 +5,10 @@ import Badge from "react-bootstrap/Badge";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { useCart } from "../hook/useCart";
 
 export default function Dish({ name, image, price, isNew, stock }) {
-  const { dispatch } = useContext(CartContext);
+  const { addToCart, removeFromCart } = useCart();
   return (
     <Card>
       <Card.Img variant="top" src={image} fluid />
@@ -19,11 +20,11 @@ export default function Dish({ name, image, price, isNew, stock }) {
           <p>{price}€</p>
         </Card.Text>
       </Card.Body>
-      <Button variant="primary" onClick={() => dispatch({ type: "increment" })}>
+      <Button variant="primary" onClick={addToCart}>
         Ajouter au panier
       </Button>
-      <Button variant="danger" onClick={() => dispatch({ type: "decrement" })}>
-        Retirer du Panier
+      <Button variant="danger" onClick={removeFromCart}>
+        Enlever du Panier
       </Button>
     </Card>
   );

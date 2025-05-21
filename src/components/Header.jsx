@@ -5,11 +5,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../assets/styles/header.scss";
 import Logo from "../assets/images/logo.webp";
-import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useCart } from "../hook/useCart";
 
 export default function Header() {
-  const { cartCount } = useContext(CartContext);
+  const { cartCount } = useCart();
   return (
     <header>
       <Navbar>
