@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
@@ -46,6 +46,13 @@ function App() {
   const filteredDishes = dishes.filter(
     (dishe) => dishe.stock > 0 && (!showNewOnly || dishe.isNew)
   );
+  const { cartCount } = useContext(CartContext);
+
+  const prevCartCountRef = useRef(cartCount);
+
+  useEffect(() => {
+    prevCartCountRef.current = cartCount; // Stocke la valeur avant le re-render
+  }, [cartCount]);
 
   return (
     <>
@@ -54,6 +61,9 @@ function App() {
         <Button variant="primary m-4 " onClick={handleShowNewOnly}>
           {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
         </Button>
+        <p className="m-4">
+          Le panier est passé de {prevCartCountRef.current} à {cartCount}
+        </p>
         <Container>
           <Row>
             {filteredDishes.map((dishe, index) => (
